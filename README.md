@@ -1,2 +1,3 @@
 # dotfiles
-Configuration files for my local setup
+
+Work-in-progress open-sourcing of my config files.
