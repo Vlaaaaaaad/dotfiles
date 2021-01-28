@@ -22,7 +22,7 @@ brew upgrade
 
 
 if [[ $(uname) = 'Darwin' ]]; then
-  # TODO: delete this when moving to Apple Silicon?
+  # Force brew install paths to be global
   export HOMEBREW_CASK_OPTS="--appdir=/Applications --fontdir=/Library/Fonts"
 
   brew tap homebrew/cask-versions
@@ -37,14 +37,17 @@ if [[ $(uname) = 'Darwin' ]]; then
   mas install 409201541  # Pages
   mas install 409183694  # Keynote
   mas install 497799835  # Xcode
+  mas install 408981434  # iMovie
   mas install 462062816  # Microsoft PowerPoint
   mas install 1295203466 # Microsoft Remote Desktop
   mas install 462058435  # Microsoft Excel
-  mas install 904280696  # Things3
   mas install 462054704  # Microsoft Word
+  mas install 904280696  # Things3
   mas install 1142051783 # LG Screen Manager
   mas install 1320666476 # Safari Extension: Wipr
   mas install 1462114288 # Safari Extension: Grammarly
+  mas install 1459809092 # Safari Extension: Accelerate
+  mas install 1473726602 # Safari Extension: Tab Space
 
   xcode-select --install
   while :
