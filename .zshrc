@@ -201,6 +201,7 @@ if [[ $IS_MAC -eq 1 ]]; then
   PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
   # export HOMEBREW_GITHUB_API_TOKEN=0000000000000000000000000 # Moved to zshrc.local
+  export HOMEBREW_CASK_OPTS="--appdir=/Applications --fontdir=/Library/Fonts"
   export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/usr/local/share/zsh-syntax-highlighting/highlighters
 
   # eval "$(rbenv init -)"

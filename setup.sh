@@ -23,10 +23,12 @@ brew upgrade
 
 if [[ $(uname) = 'Darwin' ]]; then
   # Force brew install paths to be global
+  #  see https://github.com/Homebrew/homebrew-cask/blob/master/USAGE.md#options
   export HOMEBREW_CASK_OPTS="--appdir=/Applications --fontdir=/Library/Fonts"
 
   brew tap homebrew/cask-versions
   brew tap homebrew/cask-fonts
+  brew tap homebrew/cask-drivers
 
   # Install stuff from AppStore
   sudo softwareupdate -iva
@@ -74,7 +76,7 @@ brew install jq bat
 brew install python3 pipenv golang node yarn rbenv
 npm update -g
 
-brew install awscli aws-shell awslogs aws-cdk
+brew install awscli aws-shell awslogs aws-cdk aws-iam-authenticator
 npm install -g awsp
 
 brew install tfenv tflint graphviz terraform-docs liamg/tfsec/tfsec
@@ -82,31 +84,31 @@ tfenv install latest
 
 brew install serverless aws/tap/aws-sam-cli
 
-brew install kubectl kubectx kubernetes-helm kube-ps1 aws-iam-authenticator octant
+brew install kubectl kubectx kubernetes-helm kube-ps1 aws-iam-authenticator octant dive 
 brew install johanhaleby/kubetail/kubetail stern
 
 
 if [[ $(uname) = 'Darwin' ]]; then
-  brew cask install font-anonymous-pro font-humor-sans font-gilbert
+  brew install --cask font-anonymous-pro font-humor-sans font-gilbert
 
-  brew cask install dotnet-sdk
-  brew cask install docker
+  brew install --cask dotnet-sdk
+  brew install --cask docker
 
-  brew cask install iterm2 alfred lunar amethyst
+  brew install --cask iterm2 alfred lunar amethyst grammarly ngrok
 
-  brew cask install 1password
-  brew cask install flux
-  brew cask install slack zulip zoom amazon-chime whatsapp
-  brew cask install firefox-developer-edition
-  brew cask install notion
-  brew cask install omnigraffle
+  brew install --cask 1password
+  brew install --cask flux
+  brew install --cask slack zulip zoom amazon-chime whatsapp
+  brew install --cask firefox-developer-edition
+  brew install --cask notion
+  brew install --cask omnigraffle
 
   brew install mpv
-  brew cask install iina
+  brew install --cask iina
   brew install ranger exiftool ffmpeg media-info
   brew install youtube-dl subliminal
 
-  brew cask install transmission
+  brew install --cask transmission
   mkdir ~/Downloads/Torrents
 
   brew cask install visual-studio-code
@@ -135,7 +137,14 @@ if [[ $(uname) = 'Darwin' ]]; then
   code --install-extension VisualStudioExptTeam.vscodeintellicode
   code --install-extension wayou.vscode-todo-highlight
   code --install-extension wingrunr21.vscode-ruby
+  
+  brew install elgato-control-center
+  brew install audient-evo
+  brew install --cask krisp
+  brew install logitech-camera-settings logitech-firmwareupdatetool
 
+  mkdir ~/.ssh
+  mkdir ~/.config
   # Restore all settings and configs with mackup
   #  NOTE: this replaced all the `defaults` commands
   mackup restore
@@ -147,6 +156,7 @@ git config --global user.email "Vlaaaaaaad@users.noreply.github.com"
 git config --global user.name  "Vlad Ionescu"
 
 mkdir ~/Repos
+mkdir ~/Repos/demos
 mkdir ~/Repos/GitHub
 mkdir ~/Repos/vlaaaaaaad
 mkdir ~/Repos/Castravete
