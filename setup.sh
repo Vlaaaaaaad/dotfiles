@@ -94,7 +94,7 @@ if [[ $(uname) = 'Darwin' ]]; then
   brew install --cask dotnet-sdk
   brew install --cask docker
 
-  brew install --cask iterm2 alfred lunar amethyst grammarly ngrok
+  brew install --cask iterm2 alfred lunar swish grammarly ngrok
 
   brew install --cask 1password
   brew install --cask flux
@@ -145,6 +145,7 @@ if [[ $(uname) = 'Darwin' ]]; then
 
   mkdir ~/.ssh
   mkdir ~/.config
+  mkdir ~/Downloads/Torrents
   # Restore all settings and configs with mackup
   #  NOTE: this replaced all the `defaults` commands
   mackup restore
