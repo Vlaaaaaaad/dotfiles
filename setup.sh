@@ -99,7 +99,7 @@ if [[ $(uname) = 'Darwin' ]]; then
   brew install --cask 1password
   brew install --cask flux
   brew install --cask slack zulip zoom amazon-chime whatsapp
-  brew install --cask firefox-developer-edition
+  brew install --cask firefox-developer-edition safari-technology-preview
   brew install --cask notion
   brew install --cask omnigraffle
 
