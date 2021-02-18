@@ -31,9 +31,9 @@ if [[ $(uname) = 'Darwin' ]]; then
   brew tap homebrew/cask-drivers
 
   # Install stuff from AppStore
-  sudo softwareupdate -iva
+  sudo softwareupdate --install --all
   brew install mas
-  mas signin --dialog
+  mas signin --dialog $MY_APPLE_ID_EMAIL
   mas upgrade
   mas install 409203825  # Numbers
   mas install 409201541  # Pages
@@ -67,24 +67,25 @@ fi
 
 
 
-brew install coreutils git hub github/gh/gh tree curl wget pre-commit
+brew install coreutils git hub gh tree curl wget pre-commit
 brew install zsh zsh-completions zsh-history-substring-search zsh-syntax-highlighting terminal-notifier
 chsh -s /usr/local/bin/zsh
-brew install htop watch nano unzip unrar p7zip
+brew install htop watch nano unzip p7zip
 brew install jq bat
 
 brew install python3 pipenv golang node yarn rbenv
 npm update -g
 
-brew install awscli aws-shell awslogs aws-cdk aws-iam-authenticator
+brew install awscli aws-shell awslogs aws-cdk
 npm install -g awsp
 
 brew install tfenv tflint graphviz terraform-docs liamg/tfsec/tfsec
 tfenv install latest
+tfenv use latest
 
 brew install serverless aws/tap/aws-sam-cli
 
-brew install kubectl kubectx kubernetes-helm kube-ps1 aws-iam-authenticator octant dive 
+brew install kubectl kubectx kubernetes-helm kube-ps1 aws-iam-authenticator octant dive
 brew install johanhaleby/kubetail/kubetail stern
 
 
@@ -110,8 +111,23 @@ if [[ $(uname) = 'Darwin' ]]; then
 
   brew install --cask transmission
   mkdir ~/Downloads/Torrents
+  defaults write org.m0k.transmission DownloadAsk -bool false
+  defaults write org.m0k.transmission MagnetOpenAsk -bool false
+  defaults write org.m0k.transmission CheckQuit -bool false
+  defaults write org.m0k.transmission CheckRemove -bool false
+  defaults write org.m0k.transmission AutoImport -bool true
+  defaults write org.m0k.transmission AutoImportDirectory -string "${HOME}/Downloads"
+  defaults write org.m0k.transmission DeleteOriginalTorrent -bool true
+  defaults write org.m0k.transmission UseIncompleteDownloadFolder -bool false
+  defaults write org.m0k.transmission IncompleteDownloadFolder -string "${HOME}/Downloads/Torrents"
+  defaults write org.m0k.transmission DownloadFolder -string "${HOME}/Downloads/Torrents"
+  defaults write org.m0k.transmission SpeedLimit -bool false
+  defaults write org.m0k.transmission RandomPort -bool false
+  defaults write org.m0k.transmission PeerPort 59137
+  defaults write org.m0k.transmission WarningDonate -bool false
+  defaults write org.m0k.transmission WarningLegal -bool false
 
-  brew cask install visual-studio-code
+  brew install --cask visual-studio-code
   export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
   code --install-extension alefragnani.project-manager
   code --install-extension amazonwebservices.aws-toolkit-vscode
@@ -137,18 +153,28 @@ if [[ $(uname) = 'Darwin' ]]; then
   code --install-extension VisualStudioExptTeam.vscodeintellicode
   code --install-extension wayou.vscode-todo-highlight
   code --install-extension wingrunr21.vscode-ruby
-  
+
   brew install elgato-control-center
   brew install audient-evo
   brew install --cask krisp
-  brew install logitech-camera-settings logitech-firmwareupdatetool
+  brew install logitech-camera-settings
 
   mkdir ~/.ssh
   mkdir ~/.config
-  mkdir ~/Downloads/Torrents
+
+  osascript -e 'tell application "System Preferences" to quit'
+
   # Restore all settings and configs with mackup
-  #  NOTE: this replaced all the `defaults` commands
+  #  TODO: unhappy with mackup backups
+  brew install mackup
   mackup restore
+
+
+  # TODO, manually:
+  #  - install Ecamm Live: https://www.ecamm.com/mac/ecammlive/
+  #  - install custom fonts from iCloud Drive
+
+
 fi
 
 brew cleanup
