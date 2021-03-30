@@ -22,6 +22,10 @@ brew upgrade
 
 
 if [[ $(uname) = 'Darwin' ]]; then
+  
+  # Use TouchID for sudo
+  curl -sL https://gist.githubusercontent.com/RichardBronosky/31660eb4b0f0ba5e673b9bc3c9148a70/raw/touchid_sudo.sh | bash
+
   # Force brew install paths to be global
   #  see https://github.com/Homebrew/homebrew-cask/blob/master/USAGE.md#options
   export HOMEBREW_CASK_OPTS="--appdir=/Applications --fontdir=/Library/Fonts"
