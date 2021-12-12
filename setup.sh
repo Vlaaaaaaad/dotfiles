@@ -77,7 +77,7 @@ chsh -s /usr/local/bin/zsh
 brew install htop watch nano unzip p7zip
 brew install jq bat
 
-brew install python3 pipenv golang node yarn rbenv
+brew install python3 pipenv golang node yarn rbenv php
 npm update -g
 
 brew install awscli aws-shell awslogs aws-cdk
