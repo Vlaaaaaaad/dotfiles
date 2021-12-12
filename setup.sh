@@ -43,13 +43,14 @@ if [[ $(uname) = 'Darwin' ]]; then
   mas install 409201541  # Pages
   mas install 409183694  # Keynote
   mas install 497799835  # Xcode
-  mas install 408981434  # iMovie
   mas install 462062816  # Microsoft PowerPoint
   mas install 1295203466 # Microsoft Remote Desktop
   mas install 462058435  # Microsoft Excel
   mas install 462054704  # Microsoft Word
   mas install 904280696  # Things3
+  mas install 1272768911 # Keep It
   mas install 1142051783 # LG Screen Manager
+  mas install 425424353  # Unarchiver
   mas install 1320666476 # Safari Extension: Wipr
   mas install 1462114288 # Safari Extension: Grammarly
   mas install 1459809092 # Safari Extension: Accelerate
@@ -83,7 +84,7 @@ npm update -g
 brew install awscli aws-shell awslogs aws-cdk
 npm install -g awsp
 
-brew install tfenv tflint graphviz terraform-docs liamg/tfsec/tfsec
+brew install tfenv tflint graphviz terraform-docs liamg/tfsec/tfsec cdktf
 tfenv install latest
 tfenv use latest
 
@@ -94,7 +95,7 @@ brew install johanhaleby/kubetail/kubetail stern
 
 
 if [[ $(uname) = 'Darwin' ]]; then
-  brew install --cask font-anonymous-pro font-humor-sans font-gilbert
+  brew install --cask font-anonymous-pro font-humor-sans font-gilbert font-recursive
 
   brew install --cask dotnet-sdk
   brew install --cask docker
@@ -606,8 +607,10 @@ if [[ $(uname) = 'Darwin' ]]; then
   defaults write ~/Library/Preferences/ByHost/com.apple.coreservices.useractivityd ActivityReceivingAllowed -bool true
 
   # TODO, manually:
+  #  - install VPN profile & set Network order
   #  - install Ecamm Live: https://www.ecamm.com/mac/ecammlive/
   #  - install custom fonts from iCloud Drive
+  #  - install custom apps from NAS
 
 fi
 
@@ -616,8 +619,8 @@ brew cleanup
 git config --global user.email "Vlaaaaaaad@users.noreply.github.com"
 git config --global user.name  "Vlad Ionescu"
 
-mkdir ~/Repos
-mkdir ~/Repos/demos
-mkdir ~/Repos/GitHub
-mkdir ~/Repos/vlaaaaaaad
-mkdir ~/Repos/Castravete
+mkdir ~/Developer
+mkdir ~/Developer/demos
+mkdir ~/Developer/GitHub
+mkdir ~/Developer/vlaaaaaaad
+mkdir ~/Developer/Castravete
