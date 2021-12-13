@@ -168,6 +168,7 @@ if [[ $(uname) = 'Darwin' ]]; then
   export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
   code --install-extension alefragnani.project-manager
   code --install-extension amazonwebservices.aws-toolkit-vscode
+  code --install-extension anotherglitchinthematrix.monochrome
   code --install-extension bungcip.better-toml
   code --install-extension fcrespo82.markdown-table-formatter
   code --install-extension fernandoescolar.vscode-solution-explorer
@@ -180,6 +181,7 @@ if [[ $(uname) = 'Darwin' ]]; then
   code --install-extension ms-kubernetes-tools.vscode-kubernetes-tools
   code --install-extension ms-python.python
   code --install-extension rebornix.ruby
+  code --install-extension redhat.vscode-commons
   code --install-extension redhat.vscode-yaml
   code --install-extension RobbOwen.synthwave-vscode
   code --install-extension shardulm94.trailing-spaces
