@@ -22,7 +22,7 @@ brew upgrade
 
 
 if [[ $(uname) = 'Darwin' ]]; then
-  
+
   # Use TouchID for sudo
   curl -sL https://gist.githubusercontent.com/RichardBronosky/31660eb4b0f0ba5e673b9bc3c9148a70/raw/touchid_sudo.sh | bash
 
@@ -55,6 +55,8 @@ if [[ $(uname) = 'Darwin' ]]; then
   mas install 1462114288 # Safari Extension: Grammarly
   mas install 1459809092 # Safari Extension: Accelerate
   mas install 1473726602 # Safari Extension: Tab Space
+  mas install 1543262193 # Safari Extension: Sourcegraph
+  mas install 1397180934 # Safari Extension: Dark Mode
 
   xcode-select --install
   while :
@@ -100,14 +102,14 @@ if [[ $(uname) = 'Darwin' ]]; then
   brew install --cask dotnet-sdk
   brew install --cask docker
 
-  brew install --cask iterm2 alfred lunar swish grammarly ngrok
+  brew install --cask iterm2 alfred lunar swish ngrok tailscale
+  brew install --cask dash nova
 
   brew install --cask 1password
-  brew install --cask flux
-  brew install --cask slack zulip zoom amazon-chime whatsapp
+  brew install --cask slack zoom amazon-chime whatsapp
   brew install --cask firefox-developer-edition safari-technology-preview
-  brew install --cask notion
   brew install --cask omnigraffle
+  brew install --cask adobe-acrobat-reader
 
   brew install mpv
   brew install --cask iina
@@ -168,7 +170,6 @@ if [[ $(uname) = 'Darwin' ]]; then
   export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
   code --install-extension alefragnani.project-manager
   code --install-extension amazonwebservices.aws-toolkit-vscode
-  code --install-extension anotherglitchinthematrix.monochrome
   code --install-extension bungcip.better-toml
   code --install-extension fcrespo82.markdown-table-formatter
   code --install-extension fernandoescolar.vscode-solution-explorer
@@ -188,7 +189,6 @@ if [[ $(uname) = 'Darwin' ]]; then
   code --install-extension stevensona.character-count
   code --install-extension streetsidesoftware.code-spell-checker
   code --install-extension technosophos.vscode-helm
-  code --install-extension tomphilbin.gruvbox-themes
   code --install-extension VisualStudioExptTeam.vscodeintellicode
   code --install-extension wayou.vscode-todo-highlight
   code --install-extension wingrunr21.vscode-ruby
@@ -197,6 +197,8 @@ if [[ $(uname) = 'Darwin' ]]; then
   brew install audient-evo
   brew install --cask krisp
   brew install logitech-camera-settings
+
+  brew install --cask tg-pro
 
   mkdir ~/.ssh
   mkdir ~/.config
