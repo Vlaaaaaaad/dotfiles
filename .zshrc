@@ -6,7 +6,7 @@
 
 if [ -f ${HOME}/.zshrc.local ]; then
   # File full of secrets, API keys, and so on
-  # Managed by mackup
+  # Find it in iCloud/Backups/zshrc.local
   source ${HOME}/.zshrc.local
 fi
 
@@ -22,6 +22,13 @@ if [[ -x `which brew` ]]; then
   HAS_BREW=1
 fi
 
+if [[ -x `which kubectl` ]]; then
+  HAS_K=1
+fi
+
+if [[ -x `which aws` ]]; then
+  HAS_AWS=1
+fi
 
 
 ######## ##     ## ##    ##  ######  ######## ####  #######  ##    ##  ######
@@ -71,7 +78,7 @@ notify() {
         terminal-notifier -title "$1" -subtitle "$2" -message "$3" -sound purr
       fi
     elif [[ $IS_LINUX -eq 1 ]]; then
-      notify-send -u low 'Command finished' '\"'$CMD_NAME'\" has finished.'
+      echo "TODO, it's been too long"
     else
        echo "Fancy OS you're running. Define it!"
     fi
@@ -289,30 +296,34 @@ user_prompt() {
 }
 
 kubernetes_prompt() {
-  if (( $+functions[kube_ps1] )); then
-    current_context=$(kube_ps1 config current-context)
+  if [[ $HAS_K -eq 1 ]]; then
+    if (( $+functions[kube_ps1] )); then
+      current_context=$(kube_ps1 config current-context)
 
-    if [[ -n $current_context ]]; then
-      echo "    ${current_context} ${_newline}│"
+      if [[ -n $current_context ]]; then
+        echo "    ${current_context} ${_newline}│"
 
-      if [ $commands[kubectl] ]; then
-        silent_background source <(kubectl completion zsh)
-        complete -F __start_kubectl k
-      fi
-      if [ $commands[helm] ]; then
-          silent_background source <(helm completion zsh)
+        if [ $commands[kubectl] ]; then
+          silent_background source <(kubectl completion zsh)
+          complete -F __start_kubectl k
+        fi
+        if [ $commands[helm] ]; then
+            silent_background source <(helm completion zsh)
+        fi
       fi
     fi
   fi
 }
 
 aws_prompt() {
-  if [ $commands[aws] ]; then
-    if [[ -n $AWS_PROFILE ]]; then
-      echo "    ${AWS_PROFILE} ${_newline}│"
+  if [[ $HAS_AWS -eq 1 ]]; then
+    if [ $commands[aws] ]; then
+      if [[ -n $AWS_PROFILE ]]; then
+        echo "    ${AWS_PROFILE} ${_newline}│"
 
-      if [ -f /usr/local/bin/aws_complete ]; then
-        complete -C '/usr/local/bin/aws_completer' aws
+        if [ -f /usr/local/bin/aws_complete ]; then
+          complete -C '/usr/local/bin/aws_completer' aws
+        fi
       fi
     fi
   fi
@@ -325,17 +336,11 @@ directory_prompt() {
 PROMPT='┌─── $(user_prompt) $(kubernetes_prompt) $(aws_prompt) $(directory_prompt)'
 
 
-
-
 if [[ $IS_MAC -eq 1 ]]; then
   source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-else
-  source /home/linuxbrew/.linuxbrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-fi
-
-if [[ $IS_MAC -eq 1 ]]; then
   source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 else
+  source /home/linuxbrew/.linuxbrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
   source /home/linuxbrew/.linuxbrew/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 fi
 
@@ -371,24 +376,14 @@ alias ..="cd .."
 alias bk="cd $OLDPWD" # Go back to old directory
 
 # Git
-alias gcl="git clone "
 alias ga="git add "
 alias gcm="git commit -m "
 alias gst="git status"
-alias gpu="git pull "
-alias gp="git push "
 alias gpo="git push origin "
 alias gpom="git push origin main"
-alias gb="git branch "
-alias gc="git checkout "
-alias gcb="git checkout -b "
 
 # YouTube-dl
 alias youtube-dl-with-sub="youtube-dl -o '~/Downloads/%(title)s.%(ext)s' --write-auto-sub --sub-lang en "
-
-# VSCode
-alias vsc='code .'
-alias vsca='code --add '
 
 # AWS
 alias awsp="source _awsp"
@@ -396,9 +391,6 @@ alias awsctx="source _awsp"
 
 # Terraform
 alias tf="terraform "
-
-# Helm
-alias helm2="/usr/local/opt/helm@2/bin/helm "
 
 # Kubernetes
 alias k="kubectl "
@@ -409,34 +401,9 @@ alias ksys="kubectl --namespace=kube-system "
 alias kaf='kubectl apply -f '
 alias keti='kubectl exec -ti '
 alias kgp='kubectl get pods '
-alias kep='kubectl edit pods '
-alias kdp='kubectl describe pods '
-alias kdelp='kubectl delete pods '
-alias kgs='kubectl get svc '
-alias kes='kubectl edit svc '
-alias kds='kubectl describe svc '
-alias kdels='kubectl delete svc '
-alias kgi='kubectl get ingress '
-alias kei='kubectl edit ingress '
-alias kdi='kubectl describe ingress '
-alias kgsec='kubectl get secret '
-alias kdsec='kubectl describe secret '
-alias kdelsec='kubectl delete secret '
-alias kgd='kubectl get deployment '
-alias ked='kubectl edit deployment '
-alias kdd='kubectl describe deployment '
-alias kdeld='kubectl delete deployment '
-alias krsd='kubectl rollout status deployment '
-alias kgrs='kubectl get rs '
-alias krh='kubectl rollout history '
-alias kpf="kubectl port-forward "
 alias kl='kubectl logs '
 alias klf='kubectl logs -f '
 alias kgno='kubectl get nodes '
 alias kdno='kubectl describe node '
-
-# if [[ $IS_MAC -eq 1 ]]; then
-#   test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-# fi
 
 # zprof
