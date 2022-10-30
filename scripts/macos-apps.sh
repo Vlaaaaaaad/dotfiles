@@ -28,7 +28,7 @@ brew tap homebrew/cask-drivers
 # Install stuff from AppStore
 sudo softwareupdate --install --all
 brew install mas
-read -rp "AppleID email?" mail
+read -rp "AppleID email? " mail
 mas signin --dialog $mail
 mas upgrade
 mas install 409203825  # Numbers
@@ -46,19 +46,6 @@ mas install 1320666476 # Safari Extension: Wipr
 mas install 1459809092 # Safari Extension: Accelerate
 mas install 1397180934 # Safari Extension: Dark Mode
 
-xcode-select --install
-while :
-do
-  xcode-select -p >/dev/null 2>&1
-  if [ $? == 0 ]; then
-    echo "Sccessfully ran xcode-select --install"
-    sleep 60
-    break
-  fi
-
-  sleep 30
-done
-
 brew install zsh zsh-completions zsh-history-substring-search zsh-syntax-highlighting terminal-notifier
 chsh -s /usr/local/bin/zsh
 brew install curl wget nano
@@ -73,13 +60,12 @@ brew install --cask omnigraffle
 brew install --cask slack zoom amazon-chime whatsapp
 brew install --cask krisp
 # brew install --cask audio-hijack
+# brew install --cask tg-pro
 brew install --cask audient-evo elgato-control-center logitech-camera-settings
 brew install --cask ecamm-live
 
-# brew install --cask tg-pro
-
 brew install --cask movist-pro
-brew install mpv
+brew install --cask mpv
 brew install ranger exiftool ffmpeg media-info unzip p7zip coreutils
 brew install youtube-dl subliminal
 

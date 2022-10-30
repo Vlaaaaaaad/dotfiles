@@ -37,7 +37,7 @@ if [[ $(uname) != 'Darwin' ]]; then
   code --install-extension wingrunr21.vscode-ruby
 fi
 
-brew install git hub gh pre-commit
+brew install git gh pre-commit
 brew install zsh zsh-completions zsh-history-substring-search zsh-syntax-highlighting
 chsh -s /usr/local/bin/zsh
 brew install htop watch
