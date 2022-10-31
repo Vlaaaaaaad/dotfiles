@@ -8,8 +8,6 @@ fi
 if [[ $(uname) != 'Darwin' ]]; then
   export HOMEBREW_CASK_OPTS="--appdir=/Applications --fontdir=/Library/Fonts"
 
-  # brew install --cask dash
-
   brew install --cask visual-studio-code
   export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
   code --install-extension alefragnani.project-manager
@@ -35,6 +33,9 @@ if [[ $(uname) != 'Darwin' ]]; then
   code --install-extension VisualStudioExptTeam.vscodeintellicode
   code --install-extension wayou.vscode-todo-highlight
   code --install-extension wingrunr21.vscode-ruby
+  
+  # brew install --cask dash
+  brew install --cask visual-studio docker
 fi
 
 brew install git gh pre-commit
