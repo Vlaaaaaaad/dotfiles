@@ -42,9 +42,13 @@ mas install 904280696  # Things3
 mas install 1272768911 # Keep It
 mas install 1142051783 # LG Screen Manager
 mas install 425424353  # Unarchiver
+mas install 483124549  # Let It Snow
 mas install 1320666476 # Safari Extension: Wipr
 mas install 1459809092 # Safari Extension: Accelerate
 mas install 1397180934 # Safari Extension: Dark Mode
+mas install 1569813296 # Safari Extension: 1Password
+mas install 1472715727 # Safari Extension: Page Screenshot
+mas install 1668204600 # Safari Extension: Minimal Twitter
 
 brew install zsh zsh-completions zsh-history-substring-search zsh-syntax-highlighting terminal-notifier
 chsh -s /usr/local/bin/zsh
