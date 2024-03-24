@@ -35,7 +35,7 @@ if [[ $(uname) != 'Darwin' ]]; then
   code --install-extension wingrunr21.vscode-ruby
   
   # brew install --cask dash
-  brew install --cask visual-studio docker
+  brew install --cask visual-studio docker orbstack
 fi
 
 brew install git gh pre-commit
