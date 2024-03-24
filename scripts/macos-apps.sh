@@ -40,6 +40,7 @@ mas install 462058435  # Microsoft Excel
 mas install 462054704  # Microsoft Word
 mas install 904280696  # Things3
 mas install 1272768911 # Keep It
+mas install 1482527526 # Lire
 mas install 1142051783 # LG Screen Manager
 mas install 425424353  # Unarchiver
 mas install 483124549  # Let It Snow
@@ -54,22 +55,23 @@ brew install zsh zsh-completions zsh-history-substring-search zsh-syntax-highlig
 chsh -s /usr/local/bin/zsh
 brew install curl wget nano
 
-brew install --cask font-anonymous-pro font-humor-sans font-gilbert font-recursive
+brew install --cask font-anonymous-pro font-humor-sans font-gilbert font-recursive font-ibm-plex
 
+brew install --cask arq cyberduck kaleidoscope
 brew install --cask alfred lunar swish tailscale 1password
-brew install --cask nova sublime-text
+# brew install --cask nova bbedit
+brew install --cask sublime-text
 brew install --cask firefox-developer-edition safari-technology-preview google-chrome polypane
 brew install --cask omnigraffle
 
-brew install --cask slack zoom amazon-chime whatsapp
-brew install --cask krisp
+brew install --cask slack zoom amazon-chime whatsapp discord
 # brew install --cask audio-hijack
 # brew install --cask tg-pro
 brew install --cask audient-evo elgato-control-center logitech-camera-settings
-brew install --cask ecamm-live
+# brew install --cask ecamm-live
 
 brew install --cask movist-pro
-brew install --cask mpv
+brew install --cask mpv freetube
 brew install ranger exiftool ffmpeg media-info unzip p7zip coreutils
 brew install youtube-dl subliminal
 
