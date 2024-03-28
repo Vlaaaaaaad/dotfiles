@@ -49,7 +49,6 @@ mas install 1459809092 # Safari Extension: Accelerate
 mas install 1397180934 # Safari Extension: Dark Mode
 mas install 1569813296 # Safari Extension: 1Password
 mas install 1472715727 # Safari Extension: Page Screenshot
-mas install 1668204600 # Safari Extension: Minimal Twitter
 
 brew install zsh zsh-completions zsh-history-substring-search zsh-syntax-highlighting terminal-notifier
 chsh -s /usr/local/bin/zsh
@@ -71,8 +70,8 @@ brew install --cask audient-evo elgato-control-center logitech-camera-settings
 # brew install --cask ecamm-live
 
 brew install --cask movist-pro
-brew install --cask mpv freetube
-brew install ranger exiftool ffmpeg media-info unzip p7zip coreutils
-brew install youtube-dl subliminal
+brew install --cask freetube
+brew install exiftool media-info unzip p7zip coreutils
+brew install yt-dlp
 
 brew cleanup
